@@ -1,14 +1,10 @@
-const products = [
-  {
-    id: "1",
-    title: "Book 1",
-    price: 99,
-  },
-  {
-    id: "2",
-    title: "Book 2",
-    price: 109,
-  },
-];
+const mongoose = require("mongoose");
 
-module.exports = products;
+const Schema = mongoose.Schema;
+
+const productSchema = new Schema({
+  title: { type: String, required: true },
+  price: { type: Number, required: true },
+});
+
+module.exports = mongoose.model("Product", productSchema);
